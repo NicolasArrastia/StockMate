@@ -13,7 +13,10 @@ const NotFound = () => {
       <span>El sitio al que quiere acceder no existe</span>
 
       <div className="flex gap-4">
-        <span onClick={handleGoBack} className="underline text-blue-500">
+        <span
+          onClick={handleGoBack}
+          className="underline text-blue-500 cursor-pointer"
+        >
           Volver al sitio anterior
         </span>
         <Link to="/" className="underline text-blue-500">
