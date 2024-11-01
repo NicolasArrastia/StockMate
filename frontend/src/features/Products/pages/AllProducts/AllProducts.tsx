@@ -1,6 +1,5 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import useProducts from "../../../../hooks/getProducts";
+import useProducts from "../../../../hooks/useGetProducts";
 import Button from "../../../../components/Button";
 
 const AllProducts = () => {
