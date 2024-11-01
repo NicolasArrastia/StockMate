@@ -16,8 +16,8 @@ const NewProduct = () => {
       onSuccess: () => {
         toast.success("Creado");
       },
-      onError: () => {
-        console.log("error");
+      onError: (e) => {
+        toast.error(e.message);
       },
     });
   };
