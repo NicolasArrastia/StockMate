@@ -1,0 +1,48 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build directories
+/dist
+/build
+/.next
+/.out
+/public/electron
+
+# Electron
+/electron/build/
+electron/**/*.js
+electron/**/*.map
+electron/**/*.ts
+*.asar
+*.exe
+*.dmg
+*.AppImage
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# IDE specific files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Temporary files
+tmp/
+temp/
+
+# Coverage reports
+coverage/
