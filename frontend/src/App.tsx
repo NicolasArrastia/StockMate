@@ -5,6 +5,8 @@ import Sales from "./features/Sales";
 import Dashboard from "./features/Dashboard";
 import NotFound from "./features/NotFound";
 import Settings from "./features/Settings";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +24,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <ToastContainer draggable theme="colored" />
     </QueryClientProvider>
   );
 };

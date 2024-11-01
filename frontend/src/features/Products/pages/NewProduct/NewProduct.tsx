@@ -3,6 +3,7 @@ import Button from "../../../../components/Button";
 import { ProductType } from "../../../../../../types";
 import Input from "../../../../components/Input";
 import useCreateProduct from "../../../../hooks/useCreateProduct";
+import { toast } from "react-toastify";
 
 type FormData = Partial<ProductType>;
 
@@ -13,7 +14,7 @@ const NewProduct = () => {
   const onSubmit = (data: FormData) => {
     mutate(data, {
       onSuccess: () => {
-        console.log("creado");
+        toast.success("Creado");
       },
       onError: () => {
         console.log("error");
