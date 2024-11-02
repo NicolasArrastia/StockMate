@@ -1,6 +1,6 @@
 import { useMutation, UseMutationResult } from "@tanstack/react-query";
-import axios from "../axiosConfig";
-import { ProductType } from "../../../types";
+import { ProductType } from "../../../../../types";
+import axios from "../../../axiosConfig";
 
 const createProduct = async (
   newProduct: Partial<ProductType>

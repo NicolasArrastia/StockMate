@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes } from "react";
 
-type ButtonVariant = "primary" | "secondary";
+type ButtonVariant = "primary" | "secondary" | "error";
 
 type Props = {
   variant?: ButtonVariant;
@@ -11,10 +11,12 @@ type Props = {
 const Button = ({ variant = "primary", children, onClick }: Props) => {
   const primaryVariant = "bg-blue-500 text-neutral-100";
   const secondaryVariant = "bg-neutral-400 text-neutral-100";
+  const errorVariant = "bg-red-500 text-white";
 
   const variants: Record<ButtonVariant, string> = {
     primary: primaryVariant,
     secondary: secondaryVariant,
+    error: errorVariant,
   };
 
   return (
