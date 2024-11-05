@@ -6,6 +6,7 @@ type InputProps<T extends FieldValues> = {
   register: UseFormRegister<T>;
   type?: string;
   placeholder?: string;
+  description?: string;
 };
 
 function Input<T extends FieldValues>({
@@ -14,14 +15,20 @@ function Input<T extends FieldValues>({
   register,
   type = "text",
   placeholder,
+  description,
 }: InputProps<T>) {
   return (
-    <div className="mb-4">
+    <div className="">
       <label
         htmlFor={name as string}
-        className="block text-sm font-medium mb-1"
+        className="block text-sm font-medium mb-1 uppercase text-neutral-600"
       >
         {label}
+        {!!description && (
+          <span className="text-xs text-neutral-400 font-medium">
+            {description}
+          </span>
+        )}
       </label>
       <input
         id={name as string}
