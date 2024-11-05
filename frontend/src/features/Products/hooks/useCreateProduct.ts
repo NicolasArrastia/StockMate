@@ -1,4 +1,8 @@
-import { useMutation, UseMutationResult } from "@tanstack/react-query";
+import {
+  useMutation,
+  UseMutationOptions,
+  UseMutationResult,
+} from "@tanstack/react-query";
 import { ProductType } from "../../../../../types";
 import axios from "../../../axiosConfig";
 
@@ -9,13 +13,12 @@ const createProduct = async (
   return data;
 };
 
-const useCreateProduct = (): UseMutationResult<
-  ProductType,
-  Error,
-  Partial<ProductType>
-> => {
+const useCreateProduct = (
+  options?: UseMutationOptions<ProductType, Error, Partial<ProductType>>
+): UseMutationResult<ProductType, Error, Partial<ProductType>> => {
   return useMutation<ProductType, Error, Partial<ProductType>>({
     mutationFn: createProduct,
+    ...options,
   });
 };
 

@@ -1,4 +1,8 @@
-import { useMutation, UseMutationResult } from "@tanstack/react-query";
+import {
+  useMutation,
+  UseMutationOptions,
+  UseMutationResult,
+} from "@tanstack/react-query";
 import { ProductType } from "../../../../../types";
 import axios from "../../../axiosConfig";
 
@@ -16,7 +20,13 @@ const updateProduct = async ({
   return data;
 };
 
-const useUpdateProduct = (): UseMutationResult<
+const useUpdateProduct = (
+  options?: UseMutationOptions<
+    ProductType,
+    Error,
+    { productId: string; updatedFields: Partial<ProductType> }
+  >
+): UseMutationResult<
   ProductType,
   Error,
   { productId: string; updatedFields: Partial<ProductType> }
@@ -27,6 +37,7 @@ const useUpdateProduct = (): UseMutationResult<
     { productId: string; updatedFields: Partial<ProductType> }
   >({
     mutationFn: updateProduct,
+    ...options,
   });
 };
 

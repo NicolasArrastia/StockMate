@@ -7,9 +7,11 @@ const fetchProducts = async (): Promise<ProductType[]> => {
   return data;
 };
 
+export const GET_ALL_PRODUCTS_KEY = "GET_ALL_PRODUCTS_KEY";
+
 const useGetProducts = (): UseQueryResult<ProductType[], Error> => {
   return useQuery<ProductType[], Error>({
-    queryKey: ["products"],
+    queryKey: [GET_ALL_PRODUCTS_KEY],
     queryFn: fetchProducts,
   });
 };
