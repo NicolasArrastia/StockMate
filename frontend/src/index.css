@@ -4,6 +4,6 @@
 
 @layer base {
   h1 {
-    @apply text-4xl font-semibold text-neutral-800; /* Apply your styles */
+    @apply text-4xl font-semibold text-neutral-800 mb-6; /* Apply your styles */
   }
 }
