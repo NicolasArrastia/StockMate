@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "error";
+// TODO: make enum
+export type ButtonVariant = "primary" | "secondary" | "error";
 
 type Props = {
   variant?: ButtonVariant;
@@ -20,12 +21,16 @@ const Button = ({ variant = "primary", children, onClick }: Props) => {
   };
 
   return (
-    <div
+    <button
       onClick={onClick}
-      className={`py-1 px-3 font-bold rounded-md w-fit h-fit cursor-pointer ${variants[variant]}`}
+      className={`
+        py-1 px-4 font-bold rounded-sm w-fit h-fit cursor-pointer
+        ${variants[variant]}
+
+      `}
     >
       {children}
-    </div>
+    </button>
   );
 };
 
