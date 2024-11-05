@@ -1,17 +1,6 @@
 import { Link } from "react-router-dom";
-
-const SIDEBAR_OPTIONS: { path: string; label: string }[] = [
-  // MVP
-  { path: "/products", label: "Productos" },
-  { path: "/sales", label: "Ventas" },
-  { path: "/settings", label: "Ajustes" },
-  { path: "/dashboard", label: "Dashboard" },
-
-  // MDP
-  { path: "/clients", label: "Clientes" },
-  { path: "/providers", label: "Proveedores" },
-  { path: "/docs", label: "Documentación" },
-];
+import SvgIcon from "../../../SvgIcon";
+import { SIDEBAR_OPTIONS } from "./constants";
 
 const Sidebar = () => {
   return (
@@ -28,7 +17,10 @@ const Sidebar = () => {
                 className="block relative w-full p-1 px-4 rounded-md overflow-hidden group"
                 to={option.path}
               >
-                <span className="text-lg relative z-10">{option.label}</span>
+                <div className="flex items-center gap-2">
+                  <SvgIcon icon={option.icon} />
+                  <span className="text-lg relative z-10">{option.label}</span>
+                </div>
                 <div className="absolute bg-blue-500/50 h-full w-0 group-hover:w-full transition-all top-0 left-0"></div>
               </Link>
             </li>
