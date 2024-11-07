@@ -9,7 +9,7 @@ const NotFound = () => {
 
   return (
     <div className="flex flex-col justify-center items-center gap-4 min-h-screen">
-      <h1 className="text-4xl">Ha ocurrido un problema</h1>
+      <h1 className="text-4xl mb-4">Ha ocurrido un problema</h1>
       <span>El sitio al que quiere acceder no existe</span>
 
       <div className="flex gap-4">
