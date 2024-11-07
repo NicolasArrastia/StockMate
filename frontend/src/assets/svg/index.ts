@@ -6,6 +6,9 @@ import DashboardIcon from "./dashboard.svg";
 import GroupsIcon from "./groups.svg";
 import LocalShippingIcon from "./local_shipping.svg";
 import DescriptionIcon from "./description.svg";
+import DeleteForeverIcon from "./delete_forever.svg";
+import EditIcon from "./edit.svg";
+import LoaderIcon from "./loader.svg";
 
 export {
   InventoryIcon,
@@ -16,4 +19,7 @@ export {
   GroupsIcon,
   LocalShippingIcon,
   DescriptionIcon,
+  DeleteForeverIcon,
+  EditIcon,
+  LoaderIcon,
 };
