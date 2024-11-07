@@ -1,7 +1,12 @@
-import React from "react";
+import SvgIcon from "../SvgIcon";
+import { LoaderIcon } from "../../assets/svg";
 
 const Loader = () => {
-  return <div>Loader</div>;
+  return (
+    <>
+      <SvgIcon icon={LoaderIcon} size={50} color="darkgrey" />
+    </>
+  );
 };
 
 export default Loader;
