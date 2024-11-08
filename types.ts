@@ -13,3 +13,10 @@ export type ProductType = {
   // tags: string[] | { label: string; color: string }[];
   // expirationDate: unknown;
 };
+
+export type CategoryType = {
+  _id: string;
+  name: string;
+  description: string;
+  parent: unknown;
+};
