@@ -1,11 +1,9 @@
-import React from "react";
-
-interface SwitchProps {
+type Props = {
   isOn: boolean;
   onToggle: () => void;
-}
+};
 
-const Switch: React.FC<SwitchProps> = ({ isOn, onToggle }) => {
+const Switch = ({ isOn, onToggle }: Props) => {
   return (
     <div
       onClick={onToggle}
