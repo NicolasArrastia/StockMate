@@ -9,6 +9,11 @@ const productSchema = new mongoose.Schema({
   code: { type: String, required: true },
 
   // category
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
+    required: false,
+  },
   // tags
 });
 
