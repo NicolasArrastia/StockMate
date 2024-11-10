@@ -9,7 +9,7 @@ type Props<TData> = {
 const Table = <TData,>({ tableInstance, isLoading }: Props<TData>) => {
   const { getHeaderGroups, getRowModel } = tableInstance;
 
-  const hasItems = !tableInstance.getRowCount();
+  const hasItems = !!tableInstance.getRowCount();
 
   return (
     <>
@@ -18,8 +18,6 @@ const Table = <TData,>({ tableInstance, isLoading }: Props<TData>) => {
       ) : (
         <>
           {hasItems ? (
-            <span>No hay elementos para mostrar</span>
-          ) : (
             <table className="border w-full">
               <thead className="bg-neutral-400">
                 {getHeaderGroups().map((headerGroup) => (
@@ -53,6 +51,8 @@ const Table = <TData,>({ tableInstance, isLoading }: Props<TData>) => {
                 ))}
               </tbody>
             </table>
+          ) : (
+            <span>No hay elementos para mostrar</span>
           )}
         </>
       )}
