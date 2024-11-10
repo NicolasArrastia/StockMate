@@ -7,9 +7,15 @@ type Props = {
   variant?: ButtonVariant;
   children: React.ReactNode;
   onClick: () => void;
+  className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button = ({ variant = "primary", children, onClick }: Props) => {
+const Button = ({
+  variant = "primary",
+  children,
+  onClick,
+  className,
+}: Props) => {
   const primaryVariant = "bg-blue-500 text-neutral-100";
   const secondaryVariant = "bg-neutral-400 text-neutral-100";
   const errorVariant = "bg-red-500 text-white";
@@ -26,7 +32,7 @@ const Button = ({ variant = "primary", children, onClick }: Props) => {
       className={`
         py-1 px-4 font-bold rounded-sm w-fit h-fit cursor-pointer
         ${variants[variant]}
-
+        ${className}
       `}
     >
       {children}
