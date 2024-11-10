@@ -16,7 +16,7 @@
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "concurrently \"npm run server\" \"npm run client\" \"npm run electron\"",
-    "server": "cd backend && npm run start",
+    "server": "cd backend && npm run dev",
     "client": "cd frontend && npm run dev",
     "electron": "wait-on http://localhost:3000 && electron .",
     "dist": "npm run build --prefix frontend && electron-builder"
