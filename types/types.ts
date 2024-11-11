@@ -1,3 +1,13 @@
+// TODO: Make two types, one for the populated data and another without populated data
+/*
+  unpopulatedData
+  category: string;
+  tags: string[];
+
+  populatedData
+  category: CategoryType;
+  tags: TagType[];
+*/
 export type ProductType = {
   _id: string;
   name: string;
@@ -9,8 +19,8 @@ export type ProductType = {
 
   code?: string;
 
-  category?: string;
-  tags?: string[];
+  category?: string | CategoryType;
+  tags?: string[] | TagType[];
   // expirationDate: unknown;
   // provider: string;
 };
