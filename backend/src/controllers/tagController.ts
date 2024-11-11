@@ -8,7 +8,14 @@ export const getAllTags = async (
   res: Response
 ): Promise<void> => {
   try {
-    const tags = await Tag.find();
+    const { query } = req.query;
+
+    const filter: FilterQuery<TagType> = {};
+    if (query) {
+      filter.$or = [{ name: { $regex: query, $options: "i" } }];
+    }
+
+    const tags = await Tag.find(filter);
     res.status(200).json(tags);
   } catch (error) {
     res.status(500).json({ message: "Error fetching tags", error });
