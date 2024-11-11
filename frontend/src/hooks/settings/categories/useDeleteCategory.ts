@@ -4,7 +4,7 @@ import {
   UseMutationOptions,
 } from "@tanstack/react-query";
 import axios from "../../../axiosConfig";
-import { CategoryType } from "../../../../../types";
+import { CategoryType } from "@types/types.ts";
 
 const deleteCategory = async (id: string): Promise<CategoryType> => {
   const { data } = await axios.delete(`/categories/${id}`);
