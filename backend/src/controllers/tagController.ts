@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import Tag from "../models/Tag";
+import { FilterQuery } from "mongoose";
+import { TagType } from "@types/types";
 
 export const getAllTags = async (
   req: Request,
