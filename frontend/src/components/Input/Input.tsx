@@ -9,21 +9,22 @@ type InputProps<T extends FieldValues> = {
   description?: string;
 };
 
-function Input<T extends FieldValues>({
+const Input = <T extends FieldValues>({
   label,
   name,
   register,
   type = "text",
   placeholder,
   description,
-}: InputProps<T>) {
+}: InputProps<T>) => {
   return (
     <div className="">
       <label
-        htmlFor={name as string}
+        htmlFor={name}
         className="block text-sm font-medium mb-1 uppercase text-neutral-600"
       >
         {label}
+        {/* // TODO: Add this description as info */}
         {!!description && (
           <span className="text-xs text-neutral-400 font-medium">
             {description}
@@ -35,10 +36,10 @@ function Input<T extends FieldValues>({
         type={type}
         placeholder={placeholder}
         {...register(name)}
-        className="border rounded-md p-2 w-full"
+        className="border rounded-sm p-2 w-full"
       />
     </div>
   );
-}
+};
 
 export default Input;
