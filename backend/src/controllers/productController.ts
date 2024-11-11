@@ -45,8 +45,6 @@ export const createProduct = async (
 ): Promise<void> => {
   const { name, price, description } = req.body;
 
-  console.log(req.body);
-
   const newProduct = new Product({
     name,
     price,
