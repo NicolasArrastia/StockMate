@@ -43,7 +43,7 @@ export const getTagById = async (
 export const createTag = async (req: Request, res: Response) => {
   try {
     const { name } = req.body;
-    console.log("name");
+
     const existingTag = await Tag.findOne({ name });
     if (existingTag) {
       return res
