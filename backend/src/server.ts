@@ -25,9 +25,9 @@ app.use(express.json());
 
 app.use(morgan("dev"));
 
-app.use("/api/products", delayMiddleware, productRoutes);
-app.use("/api/categories", delayMiddleware, categoryRoutes);
-app.use("/api/tags", delayMiddleware, tagRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/categories", categoryRoutes);
+app.use("/api/tags", tagRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
