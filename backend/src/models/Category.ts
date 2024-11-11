@@ -1,6 +1,7 @@
+import { CategoryType } from "@types/types";
 import mongoose, { Schema, Document } from "mongoose";
 
-const categorySchema = new mongoose.Schema({
+const categorySchema = new mongoose.Schema<CategoryType>({
   name: {
     type: String,
     required: true,
