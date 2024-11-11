@@ -4,7 +4,7 @@ import {
   UseMutationResult,
 } from "@tanstack/react-query";
 import axios from "../../../axiosConfig";
-import { ProductType } from "../../../../../types";
+import { ProductType } from "@types/types.ts";
 
 const deleteProduct = async (id: string): Promise<ProductType> => {
   const { data } = await axios.delete<ProductType>(`/products/${id}`);
