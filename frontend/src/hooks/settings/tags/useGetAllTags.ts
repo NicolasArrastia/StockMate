@@ -17,7 +17,7 @@ export const GET_ALL_TAGS_KEY = "GET_ALL_TAGS_KEY";
 
 type Props = {
   search?: string;
-} & UseQueryOptions<TagType[], Error>;
+} & Partial<UseQueryOptions<TagType[], Error>>;
 
 const useGetAllTags = ({ search, ...queryOptions }: Props = {}): UseQueryResult<
   TagType[],
