@@ -4,10 +4,21 @@ import mongoose from "mongoose";
 const productSchema = new mongoose.Schema<ProductType>({
   name: { type: String, required: true },
   price: { type: Number, required: true },
+  costPrice: { type: Number, required: true },
+
   description: { type: String },
+
   quantityOnStock: { type: Number, default: 0 },
   lowQuantityWarning: { type: Number, default: 0 },
+  ignoreQuantity: { type: Boolean, default: false },
+
   code: { type: String, required: false },
+
+  supplier: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Supplier",
+    required: false,
+  },
 
   category: {
     type: mongoose.Schema.Types.ObjectId,

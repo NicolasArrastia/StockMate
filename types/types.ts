@@ -11,18 +11,24 @@
 export type ProductType = {
   _id: string;
   name: string;
-  price: number;
   description: string;
+  code?: string;
+  category?: string | CategoryType;
+  tags?: string[] | TagType[];
 
   quantityOnStock: number;
   lowQuantityWarning?: number;
+  ignoreQuantity?: boolean;
 
-  code?: string;
+  supplier?: string;
 
-  category?: string | CategoryType;
-  tags?: string[] | TagType[];
+  price: number;
+  costPrice: number;
+  ignorePrice?: boolean;
+
+  isActive: boolean;
+
   // expirationDate: unknown;
-  // provider: string;
 };
 
 export type CategoryType = {
