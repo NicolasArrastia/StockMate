@@ -18,6 +18,6 @@ export const SIDEBAR_OPTIONS: { path: string; label: string; icon: string }[] =
 
     // MDP
     { path: "/clients", label: "Clientes", icon: GroupsIcon },
-    { path: "/providers", label: "Proveedores", icon: LocalShippingIcon },
+    { path: "/suppliers", label: "Proveedores", icon: LocalShippingIcon },
     { path: "/docs", label: "Documentación", icon: DescriptionIcon },
   ];
