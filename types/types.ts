@@ -1,23 +1,13 @@
-// TODO: Make two types, one for the populated data and another without populated data
-/*
-  unpopulatedData
-  category: string;
-  tags: string[];
-
-  populatedData
-  category: CategoryType;
-  tags: TagType[];
-*/
 export type ProductType = {
   _id: string;
   name: string;
   description: string;
   code?: string;
-  category?: string | CategoryType;
-  tags?: string[] | TagType[];
+  category?: string;
+  tags?: string[];
 
   quantityOnStock: number;
-  lowQuantityWarning?: number;
+  lowQuantityWarning: number;
   ignoreQuantity?: boolean;
 
   supplier?: string;
@@ -29,6 +19,20 @@ export type ProductType = {
   isActive: boolean;
 
   // expirationDate: unknown;
+};
+
+export type ProductPopulatedType = Omit<
+  ProductType,
+  "category" | "tags" | "supplier"
+> & {
+  category?: CategoryType;
+  tags: TagType[];
+  supplier?: SupplierType;
+};
+
+export type SupplierType = {
+  _id: string;
+  name: string;
 };
 
 export type CategoryType = {
