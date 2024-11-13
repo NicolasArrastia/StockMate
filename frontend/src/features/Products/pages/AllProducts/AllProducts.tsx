@@ -10,7 +10,11 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import SvgIcon from "../../../../components/SvgIcon";
-import { DeleteForeverIcon, EditIcon } from "../../../../assets/svg";
+import {
+  DeleteForeverIcon,
+  EditIcon,
+  WarningIcon,
+} from "../../../../assets/svg";
 import TruncatedText from "../../../../components/TruncatedText";
 import Category from "../../../../components/UI/Category/Category.tsx";
 
@@ -83,20 +87,23 @@ const AllProducts = () => {
         // accessorKey: "quantityOnStock",
         header: "Cantidad",
         // id: "quantityOnStock",
-        cell: ({ row }) => (
-          <span
-            className={`${
-              row.original.quantityOnStock <= row.original.lowQuantityWarning &&
-              "text-orange-500 font-semibold"
-            } flex`}
-          >
-            {row.original.quantityOnStock}
-            {row.original.quantityOnStock <=
-              row.original.lowQuantityWarning && (
-              <SvgIcon icon={DeleteForeverIcon} />
-            )}
-          </span>
-        ),
+        cell: ({
+          row: {
+            original: { quantityOnStock, lowQuantityWarning },
+          },
+        }) => {
+          const isStockWarning = quantityOnStock <= lowQuantityWarning;
+          return (
+            <span
+              className={`${
+                isStockWarning && "text-orange-500 font-semibold"
+              } flex items-center gap-2`}
+            >
+              {quantityOnStock}
+              {isStockWarning && <SvgIcon icon={WarningIcon} size={20} />}
+            </span>
+          );
+        },
       },
       {
         id: "actions",
