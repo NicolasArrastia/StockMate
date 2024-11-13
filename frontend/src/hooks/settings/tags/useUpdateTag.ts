@@ -1,4 +1,4 @@
-import { TagType } from "@types/types";
+import { TagType } from "@globalTypes/types";
 import axios from "../../../axiosConfig";
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 

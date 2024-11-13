@@ -1,6 +1,6 @@
 import Input from "../../../../components/Input";
 import Button from "../../../../components/Button";
-import { ProductPopulatedType } from "@types/types.ts";
+import { ProductPopulatedType } from "@globalTypes/types";
 import { useMemo, useState } from "react";
 import Loader from "../../../../components/Loader";
 import useGetAllCategories from "../../../../hooks/settings/categories/useGetAllCategories";

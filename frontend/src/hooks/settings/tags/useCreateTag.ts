@@ -1,6 +1,6 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import axios from "../../../axiosConfig";
-import { TagType } from "@types/types";
+import { TagType } from "@globalTypes/types";
 
 const createTag = async (newTag: Partial<TagType>) => {
   const { data } = await axios.post<TagType>("/tags", newTag);

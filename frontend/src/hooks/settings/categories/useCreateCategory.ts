@@ -3,7 +3,7 @@ import {
   UseMutationOptions,
   UseMutationResult,
 } from "@tanstack/react-query";
-import { CategoryType } from "@types/types.ts";
+import { CategoryType } from "@globalTypes/types.ts";
 import axios from "../../../axiosConfig";
 
 const createCategory = async (newCategory: Partial<CategoryType>) => {

@@ -7,7 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import useGetProduct from "../../hooks/useGetProduct";
 import { useEffect } from "react";
-import { ProductPopulatedType } from "@types/types";
+import { ProductPopulatedType } from "@globalTypes/types";
 
 type FormModes = "create" | "update";
 

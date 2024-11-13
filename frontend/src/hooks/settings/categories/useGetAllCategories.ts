@@ -1,6 +1,6 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 import axios from "../../../axiosConfig";
-import { CategoryType } from "@types/types.ts";
+import { CategoryType } from "@globalTypes/types.ts";
 
 const getAllCategories = async (): Promise<CategoryType[]> => {
   const { data } = await axios.get<CategoryType[]>("/categories");

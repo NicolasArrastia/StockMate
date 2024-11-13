@@ -1,5 +1,5 @@
 import axios from "../../../axiosConfig";
-import { TagType } from "@types/types.ts";
+import { TagType } from "@globalTypes/types.ts";
 import {
   useQuery,
   UseQueryOptions,

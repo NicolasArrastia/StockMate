@@ -3,7 +3,7 @@ import Button from "../../../../components/Button";
 import { useCallback, useMemo, useState } from "react";
 import useGetAllProducts from "../../hooks/useGetAllProducts.ts";
 import Table from "../../../../components/Table";
-import { ProductPopulatedType } from "@types/types.ts";
+import { ProductPopulatedType } from "@globalTypes/types.ts";
 import {
   ColumnDef,
   getCoreRowModel,

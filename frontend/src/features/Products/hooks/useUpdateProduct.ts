@@ -3,7 +3,7 @@ import {
   UseMutationOptions,
   UseMutationResult,
 } from "@tanstack/react-query";
-import { ProductPopulatedType } from "@types/types.ts";
+import { ProductPopulatedType } from "@globalTypes/types.ts";
 import axios from "../../../axiosConfig";
 
 const updateProduct = async ({

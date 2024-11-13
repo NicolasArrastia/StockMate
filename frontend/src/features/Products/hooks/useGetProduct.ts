@@ -1,6 +1,6 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 import axios from "../../../axiosConfig";
-import { ProductPopulatedType } from "@types/types.ts";
+import { ProductPopulatedType } from "@globalTypes/types.ts";
 
 const getProduct = async (id?: string): Promise<ProductPopulatedType> => {
   const { data } = await axios.get<ProductPopulatedType>(`/products/${id}`);
