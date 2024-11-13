@@ -4,10 +4,12 @@ import {
   UseQueryResult,
 } from "@tanstack/react-query";
 import axios from "../../../axiosConfig";
-import { ProductType } from "@types/types.ts";
+import { ProductPopulatedType } from "@types/types.ts";
 
-const getAllProducts = async (search?: string): Promise<ProductType[]> => {
-  const { data } = await axios.get<ProductType[]>("/products", {
+const getAllProducts = async (
+  search?: string
+): Promise<ProductPopulatedType[]> => {
+  const { data } = await axios.get<ProductPopulatedType[]>("/products", {
     params: { search },
   });
   return data;
@@ -17,14 +19,14 @@ export const GET_ALL_PRODUCTS_KEY = "GET_ALL_PRODUCTS_KEY";
 
 type Params = {
   search?: string;
-  queryOptions?: UseQueryOptions<ProductType[], Error>;
+  queryOptions?: UseQueryOptions<ProductPopulatedType[], Error>;
 };
 
 const useGetAllProducts = ({
   search,
   queryOptions,
-}: Params): UseQueryResult<ProductType[], Error> => {
-  return useQuery<ProductType[], Error>({
+}: Params): UseQueryResult<ProductPopulatedType[], Error> => {
+  return useQuery<ProductPopulatedType[], Error>({
     queryKey: [GET_ALL_PRODUCTS_KEY, search],
     queryFn: () => getAllProducts(search),
     ...queryOptions,

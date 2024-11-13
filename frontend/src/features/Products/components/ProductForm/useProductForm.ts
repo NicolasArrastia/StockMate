@@ -7,11 +7,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import useGetProduct from "../../hooks/useGetProduct";
 import { useEffect } from "react";
-import { ProductType } from "@types/types";
+import { ProductPopulatedType } from "@types/types";
 
 type FormModes = "create" | "update";
 
-type ProductFormFields = Partial<ProductType> & { _id: ProductType["_id"] };
+type ProductFormFields = Partial<ProductPopulatedType> & {
+  _id: ProductPopulatedType["_id"];
+};
 
 type Props = {
   mode: FormModes;

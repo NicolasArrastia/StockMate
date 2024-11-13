@@ -3,7 +3,7 @@ import {
   UseMutationOptions,
   UseMutationResult,
 } from "@tanstack/react-query";
-import { ProductType } from "@types/types.ts";
+import { ProductPopulatedType } from "@types/types.ts";
 import axios from "../../../axiosConfig";
 
 const updateProduct = async ({
@@ -11,9 +11,9 @@ const updateProduct = async ({
   updatedFields,
 }: {
   productId: string;
-  updatedFields: Partial<ProductType>;
-}): Promise<ProductType> => {
-  const { data } = await axios.put<ProductType>(
+  updatedFields: Partial<ProductPopulatedType>;
+}): Promise<ProductPopulatedType> => {
+  const { data } = await axios.put<ProductPopulatedType>(
     `/products/${productId}`,
     updatedFields
   );
@@ -22,19 +22,19 @@ const updateProduct = async ({
 
 const useUpdateProduct = (
   options?: UseMutationOptions<
-    ProductType,
+    ProductPopulatedType,
     Error,
-    { productId: string; updatedFields: Partial<ProductType> }
+    { productId: string; updatedFields: Partial<ProductPopulatedType> }
   >
 ): UseMutationResult<
-  ProductType,
+  ProductPopulatedType,
   Error,
-  { productId: string; updatedFields: Partial<ProductType> }
+  { productId: string; updatedFields: Partial<ProductPopulatedType> }
 > => {
   return useMutation<
-    ProductType,
+    ProductPopulatedType,
     Error,
-    { productId: string; updatedFields: Partial<ProductType> }
+    { productId: string; updatedFields: Partial<ProductPopulatedType> }
   >({
     mutationFn: updateProduct,
     ...options,

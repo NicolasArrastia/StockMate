@@ -3,7 +3,7 @@ import Button from "../../../../components/Button";
 import { useCallback, useMemo, useState } from "react";
 import useGetAllProducts from "../../hooks/useGetAllProducts.ts";
 import Table from "../../../../components/Table";
-import { ProductType } from "@types/types.ts";
+import { ProductPopulatedType } from "@types/types.ts";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -36,7 +36,7 @@ const AllProducts = () => {
   // });
 
   const handleEditRedirect = useCallback(
-    (id: ProductType["_id"]) => {
+    (id: ProductPopulatedType["_id"]) => {
       navigate(`/products/${id}`);
     },
     [navigate]
@@ -47,7 +47,7 @@ const AllProducts = () => {
     alert("TODO");
   };
 
-  const columns: ColumnDef<ProductType>[] = useMemo(
+  const columns: ColumnDef<ProductPopulatedType>[] = useMemo(
     () => [
       {
         accessorKey: "name",

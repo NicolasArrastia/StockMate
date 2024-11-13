@@ -4,17 +4,17 @@ import {
   UseMutationResult,
 } from "@tanstack/react-query";
 import axios from "../../../axiosConfig";
-import { ProductType } from "@types/types.ts";
+import { ProductPopulatedType } from "@types/types.ts";
 
-const deleteProduct = async (id: string): Promise<ProductType> => {
-  const { data } = await axios.delete<ProductType>(`/products/${id}`);
+const deleteProduct = async (id: string): Promise<ProductPopulatedType> => {
+  const { data } = await axios.delete<ProductPopulatedType>(`/products/${id}`);
   return data;
 };
 
 const useDeleteProduct = (
-  options?: UseMutationOptions<ProductType, Error, string>
-): UseMutationResult<ProductType, Error, string> => {
-  return useMutation<ProductType, Error, string>({
+  options?: UseMutationOptions<ProductPopulatedType, Error, string>
+): UseMutationResult<ProductPopulatedType, Error, string> => {
+  return useMutation<ProductPopulatedType, Error, string>({
     mutationFn: deleteProduct,
     ...options,
   });

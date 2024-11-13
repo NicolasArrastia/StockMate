@@ -1,16 +1,18 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 import axios from "../../../axiosConfig";
-import { ProductType } from "@types/types.ts";
+import { ProductPopulatedType } from "@types/types.ts";
 
-const fetchProductById = async (id?: string): Promise<ProductType> => {
-  const { data } = await axios.get<ProductType>(`/products/${id}`);
+const getProduct = async (id?: string): Promise<ProductPopulatedType> => {
+  const { data } = await axios.get<ProductPopulatedType>(`/products/${id}`);
   return data;
 };
 
-const useGetProduct = (id?: string): UseQueryResult<ProductType, Error> => {
-  return useQuery<ProductType, Error>({
+const useGetProduct = (
+  id?: string
+): UseQueryResult<ProductPopulatedType, Error> => {
+  return useQuery<ProductPopulatedType, Error>({
     queryKey: ["product", id],
-    queryFn: () => fetchProductById(id),
+    queryFn: () => getProduct(id),
     enabled: !!id,
   });
 };

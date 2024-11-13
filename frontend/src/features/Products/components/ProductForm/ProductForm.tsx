@@ -1,6 +1,6 @@
 import Input from "../../../../components/Input";
 import Button from "../../../../components/Button";
-import { ProductType } from "@types/types.ts";
+import { ProductPopulatedType } from "@types/types.ts";
 import { useMemo, useState } from "react";
 import Loader from "../../../../components/Loader";
 import useGetAllCategories from "../../../../hooks/settings/categories/useGetAllCategories";
@@ -9,7 +9,9 @@ import useGetAllTags from "../../../../hooks/settings/tags/useGetAllTags";
 import SwitchInput from "../../../../components/SwitchInput";
 import useProductForm from "./useProductForm";
 
-type ProductFormFields = Partial<ProductType> & { _id: ProductType["_id"] };
+type ProductFormFields = Partial<ProductPopulatedType> & {
+  _id: ProductPopulatedType["_id"];
+};
 
 type FormModes = "create" | "update";
 
