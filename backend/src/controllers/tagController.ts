@@ -8,11 +8,11 @@ export const getAllTags = async (
   res: Response
 ): Promise<void> => {
   try {
-    const { query } = req.query;
+    const { search } = req.query;
 
     const filter: FilterQuery<TagType> = {};
-    if (query) {
-      filter.$or = [{ name: { $regex: query, $options: "i" } }];
+    if (search) {
+      filter.$or = [{ name: { $regex: search, $options: "i" } }];
     }
 
     const tags = await Tag.find(filter);

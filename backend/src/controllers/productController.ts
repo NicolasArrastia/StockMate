@@ -9,13 +9,13 @@ export const getProducts = async (
   res: Response
 ): Promise<void> => {
   try {
-    const { query } = req.query;
+    const { search } = req.query;
 
     const filter: FilterQuery<ProductType> = {};
-    if (query) {
+    if (search) {
       filter.$or = [
-        { name: { $regex: query, $options: "i" } },
-        { description: { $regex: query, $options: "i" } },
+        { name: { $regex: search, $options: "i" } },
+        { description: { $regex: search, $options: "i" } },
       ];
     }
 
