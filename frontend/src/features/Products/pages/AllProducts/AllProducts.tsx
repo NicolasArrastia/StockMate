@@ -12,6 +12,7 @@ import {
 import SvgIcon from "../../../../components/SvgIcon";
 import { DeleteForeverIcon, EditIcon } from "../../../../assets/svg";
 import TruncatedText from "../../../../components/TruncatedText";
+import Category from "../../../../components/UI/Category/Category.tsx";
 
 const AllProducts = () => {
   const navigate = useNavigate();
@@ -51,12 +52,12 @@ const AllProducts = () => {
     () => [
       {
         accessorKey: "name",
-        header: "Name",
+        header: "Nombre",
       },
       { accessorKey: "price", header: "Precio" },
       {
         accessorKey: "description",
-        header: "Description",
+        header: "Descripción",
         cell: ({
           row: {
             original: { description },
@@ -70,14 +71,31 @@ const AllProducts = () => {
           row: {
             original: { category },
           },
-        }) => (
-          <>
-            {category && (
-              <span className="py-1/2 px-2 bg-neutral-300 border border-neutral-400 rounded-sm font-semibold text-neutral-700">
-                {category.name}
-              </span>
+        }) => {
+          return category ? (
+            <Category name={category.name} />
+          ) : (
+            <span className="text-neutral-400 italic">no hay categoría</span>
+          );
+        },
+      },
+      {
+        // accessorKey: "quantityOnStock",
+        header: "Cantidad",
+        // id: "quantityOnStock",
+        cell: ({ row }) => (
+          <span
+            className={`${
+              row.original.quantityOnStock <= row.original.lowQuantityWarning &&
+              "text-orange-500 font-semibold"
+            } flex`}
+          >
+            {row.original.quantityOnStock}
+            {row.original.quantityOnStock <=
+              row.original.lowQuantityWarning && (
+              <SvgIcon icon={DeleteForeverIcon} />
             )}
-          </>
+          </span>
         ),
       },
       {
@@ -120,7 +138,7 @@ const AllProducts = () => {
           onChange={handleSearch}
           className="border rounded-md p-2 mb-4 w-80"
         />
-        <Button onClick={handleCreateProduct}>+ Producto</Button>
+        <Button onClick={handleCreateProduct}>Agregar Producto</Button>
       </div>
 
       <Table tableInstance={tableInstance} isLoading={isLoading} />
