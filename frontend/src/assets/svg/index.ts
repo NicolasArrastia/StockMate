@@ -9,6 +9,7 @@ import DescriptionIcon from "./description.svg";
 import DeleteForeverIcon from "./delete_forever.svg";
 import EditIcon from "./edit.svg";
 import LoaderIcon from "./loader.svg";
+import WarningIcon from "./warning.svg";
 
 export {
   InventoryIcon,
@@ -22,4 +23,5 @@ export {
   DeleteForeverIcon,
   EditIcon,
   LoaderIcon,
+  WarningIcon,
 };
