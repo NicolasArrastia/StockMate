@@ -1,10 +1,15 @@
+import { Route, Routes } from "react-router-dom";
 import Layout from "../../components/Layout";
+import { saleRoutes } from "./saleRoutes";
 
 const Sales = () => {
   return (
     <Layout>
-      <h1>Ventas</h1>
-      TODO add ventas
+      <Routes>
+        {saleRoutes.map((route) => (
+          <Route key={route.path} path={route.path} element={route.element} />
+        ))}
+      </Routes>
     </Layout>
   );
 };
