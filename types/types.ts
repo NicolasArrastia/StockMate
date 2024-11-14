@@ -14,7 +14,7 @@ export type ProductType = {
 
   price: number;
   costPrice: number;
-  ignorePrice?: boolean;
+  ignorePrice: boolean;
 
   isActive: boolean;
 
