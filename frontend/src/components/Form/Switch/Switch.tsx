@@ -5,7 +5,7 @@ import {
   FieldValues,
   Path,
 } from "react-hook-form";
-import SwitchUI from "../../Switch";
+import SwitchUI from "../../UI/Switch";
 
 type Props<T extends FieldValues> = {
   name: Path<T>;
