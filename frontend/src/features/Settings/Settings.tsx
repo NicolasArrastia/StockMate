@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Layout from "../../components/Layout";
-import SwitchInput from "../../components/SwitchInput";
 import Categories from "./components/Categories";
 import Tags from "./components/Tags";
 
@@ -16,11 +15,6 @@ const Settings = () => {
       <Tags />
 
       <h2 className="font-semibold text-xl mt-2">Configuraciones</h2>
-      <SwitchInput
-        label={"Activar ayuda en formularios"}
-        isOn={isOn}
-        onToggle={() => setIsOn((prev) => !prev)}
-      />
       {/* <div className="flex flex-col gap-2">
         <div className="flex gap-2">
           <Switch isOn={isOn} onToggle={() => setIsOn((prev) => !prev)} />
