@@ -6,6 +6,7 @@ import cors from "cors";
 import categoryRoutes from "./routes/categoryRoutes.ts";
 import tagRoutes from "./routes/tagRoutes.ts";
 import morgan from "morgan";
+import saleRoutes from "./routes/saleRoutes.ts";
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.use(morgan("dev"));
 app.use("/api/products", productRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/tags", tagRoutes);
+app.use("/api/sales", saleRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
