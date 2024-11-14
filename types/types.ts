@@ -8,7 +8,7 @@ export type ProductType = {
 
   quantityOnStock: number;
   lowQuantityWarning: number;
-  ignoreQuantity?: boolean;
+  ignoreQuantity: boolean;
 
   supplier?: string;
 
