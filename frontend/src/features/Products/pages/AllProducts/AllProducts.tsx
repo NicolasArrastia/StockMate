@@ -1,13 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../../../../components/Button";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import useGetAllProducts from "../../hooks/useGetAllProducts.ts";
 import { ProductPopulatedType } from "@globalTypes/types.ts";
-import {
-  ColumnDef,
-  getCoreRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
+import { ColumnDef } from "@tanstack/react-table";
 import SvgIcon from "../../../../components/SvgIcon";
 import {
   DeleteForeverIcon,
@@ -22,11 +18,7 @@ import Table from "../../../../components/Table";
 const AllProducts = () => {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
-  const {
-    data: products = [],
-    isLoading,
-    refetch,
-  } = useGetAllProducts({
+  const { data: products = [], isLoading } = useGetAllProducts({
     search,
   });
 

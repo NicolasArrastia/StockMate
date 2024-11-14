@@ -19,13 +19,12 @@ export const GET_ALL_PRODUCTS_KEY = "GET_ALL_PRODUCTS_KEY";
 
 type Params = {
   search?: string;
-  queryOptions?: UseQueryOptions<ProductPopulatedType[], Error>;
-};
+} & Partial<UseQueryOptions<ProductPopulatedType[], Error>>;
 
 const useGetAllProducts = ({
   search,
-  queryOptions,
-}: Params): UseQueryResult<ProductPopulatedType[], Error> => {
+  ...queryOptions
+}: Params = {}): UseQueryResult<ProductPopulatedType[], Error> => {
   return useQuery<ProductPopulatedType[], Error>({
     queryKey: [GET_ALL_PRODUCTS_KEY, search],
     queryFn: () => getAllProducts(search),
