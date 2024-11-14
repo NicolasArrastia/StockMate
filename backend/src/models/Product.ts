@@ -3,8 +3,10 @@ import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema<ProductType>({
   name: { type: String, required: true },
+
   price: { type: Number, required: true },
   costPrice: { type: Number, required: true },
+  ignorePrice: { type: Boolean, required: false },
 
   description: { type: String },
 
@@ -26,6 +28,8 @@ const productSchema = new mongoose.Schema<ProductType>({
     required: false,
   },
   tags: [{ type: mongoose.Schema.Types.ObjectId, ref: "Tag" }],
+
+  isActive: { type: Boolean, default: true },
 });
 
 const Product = mongoose.model("Product", productSchema);
