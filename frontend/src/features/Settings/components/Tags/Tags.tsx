@@ -1,7 +1,7 @@
 import useGetAllTags, {
   GET_ALL_TAGS_KEY,
 } from "../../../../hooks/settings/tags/useGetAllTags";
-import Tag from "../../../../components/Tag/Tag";
+import Tag from "../../../../components/UI/Tag/Tag";
 import Loader from "../../../../components/Loader";
 import SvgIcon from "../../../../components/SvgIcon";
 import { DeleteForeverIcon } from "../../../../assets/svg";
