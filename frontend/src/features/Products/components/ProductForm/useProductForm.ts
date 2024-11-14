@@ -23,13 +23,14 @@ const useProductForm = ({ mode }: Props) => {
   const { id } = useParams<{ id: string }>();
   const { data: product, isLoading } = useGetProduct(id);
 
-  const { register, handleSubmit, reset, getValues } =
-    useForm<ProductFormFields>({
-      defaultValues:
-        mode === "update"
-          ? { ...product, category: product?.category ?? undefined }
-          : {},
-    });
+  const form = useForm<ProductFormFields>({
+    defaultValues:
+      mode === "update"
+        ? { ...product, category: product?.category ?? undefined }
+        : {},
+  });
+
+  const { handleSubmit, reset } = form;
 
   const navigate = useNavigate();
 
@@ -49,7 +50,7 @@ const useProductForm = ({ mode }: Props) => {
     },
     onSuccess: () => {
       toast.success("Producto actualizado");
-      navigate("/products");
+      // navigate("/products");
     },
   });
   const { mutate: deleteProduct } = useDeleteProduct({
@@ -111,7 +112,7 @@ const useProductForm = ({ mode }: Props) => {
     ],
   };
 
-  return { buttons, register, isLoading, getValues };
+  return { buttons, isLoading, ...form };
 };
 
 export default useProductForm;
