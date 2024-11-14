@@ -47,3 +47,37 @@ export type TagType = {
   name: string;
   color: string;
 };
+
+export enum PaymentMethodsEnum {
+  CASH = "cash",
+  CREDIT_CARD = "credit_card",
+  DEBIT_CARD = "debit_card",
+  ONLINE = "online",
+  OTHER = "other",
+}
+export enum SaleStatusEnum {
+  COMPLETED = "completed",
+  PENDING = "pending",
+  CANCELED = "canceled",
+  REFUNDED = "refunded",
+}
+
+export type SaleType = {
+  _id: string;
+  date: Date;
+  customerId: string;
+
+  products: Array<{
+    id: string;
+    name: string;
+    quantity: number;
+    price: number;
+  }>;
+
+  totalAmount: number;
+  totalDiscount: number;
+
+  paymentMethod?: PaymentMethodsEnum;
+  status?: SaleStatusEnum;
+  // createdBy: string;
+};
