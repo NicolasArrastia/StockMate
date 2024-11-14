@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import Product from "../models/Product.js";
 // TODO: fix this import
-import { ProductType } from "@types/types.ts";
 import { FilterQuery } from "mongoose";
+import { ProductType } from "@globalTypes/types.js";
 
 export const getProducts = async (
   req: Request,

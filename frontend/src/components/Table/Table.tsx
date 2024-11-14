@@ -1,12 +1,23 @@
-import { flexRender, Table as TableType } from "@tanstack/react-table";
+import {
+  ColumnDef,
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
 import Loader from "../Loader";
 
 type Props<TData> = {
-  tableInstance: TableType<TData>;
+  columns: ColumnDef<TData>[];
+  data: TData[];
   isLoading: boolean;
 };
 
-const Table = <TData,>({ tableInstance, isLoading }: Props<TData>) => {
+const Table = <TData,>({ columns, data, isLoading }: Props<TData>) => {
+  const tableInstance = useReactTable({
+    data,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+  });
   const { getHeaderGroups, getRowModel } = tableInstance;
 
   const hasItems = !!tableInstance.getRowCount();

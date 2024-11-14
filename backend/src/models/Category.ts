@@ -1,4 +1,4 @@
-import { CategoryType } from "@types/types";
+import { CategoryType } from "@globalTypes/types";
 import mongoose, { Schema, Document } from "mongoose";
 
 const categorySchema = new mongoose.Schema<CategoryType>({

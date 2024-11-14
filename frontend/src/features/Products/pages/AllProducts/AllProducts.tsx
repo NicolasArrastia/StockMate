@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../../../../components/Button";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import useGetAllProducts from "../../hooks/useGetAllProducts.ts";
-import Table from "../../../../components/Table";
 import { ProductPopulatedType } from "@globalTypes/types.ts";
 import {
   ColumnDef,
@@ -17,17 +16,25 @@ import {
 } from "../../../../assets/svg";
 import TruncatedText from "../../../../components/TruncatedText";
 import Category from "../../../../components/UI/Category/Category.tsx";
+import Input from "../../../../components/UI/Input/Input.tsx";
+import Table from "../../../../components/Table";
 
 const AllProducts = () => {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
-  const { data: products = [], isLoading } = useGetAllProducts({
+  const {
+    data: products = [],
+    isLoading,
+    refetch,
+  } = useGetAllProducts({
     search,
   });
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  console.count("AllProducts");
+
+  const handleSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
-  };
+  }, []);
 
   const handleCreateProduct = () => {
     navigate("new");
@@ -128,27 +135,20 @@ const AllProducts = () => {
 
   const data = useMemo(() => products, [products]);
 
-  const tableInstance = useReactTable({
-    data,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-  });
-
   return (
     <>
       <h1>Productos</h1>
-      <div className="flex items-center justify-between">
-        <input
-          type="text"
-          placeholder="Buscar por Nombre, Descripción..."
+      <div className="flex items-center justify-between mb-2">
+        <Input
+          placeholder="Buscar por Nombre, Descripción"
           value={search}
+          className="!w-80"
           onChange={handleSearch}
-          className="border rounded-md p-2 mb-4 w-80"
         />
         <Button onClick={handleCreateProduct}>Agregar Producto</Button>
       </div>
 
-      <Table tableInstance={tableInstance} isLoading={isLoading} />
+      <Table columns={columns} data={data} isLoading={isLoading} />
     </>
   );
 };

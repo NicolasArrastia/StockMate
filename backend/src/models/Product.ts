@@ -1,4 +1,4 @@
-import { ProductType } from "@types/types";
+import { ProductType } from "@globalTypes/types";
 import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema<ProductType>({
