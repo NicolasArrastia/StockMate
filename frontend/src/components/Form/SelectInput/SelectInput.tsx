@@ -1,4 +1,3 @@
-import React from "react";
 import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
 type Props<T extends FieldValues> = {
@@ -9,7 +8,13 @@ type Props<T extends FieldValues> = {
   options: Array<{ label: string; value: string }>;
 };
 
-const SelectInput = <T,>({ label, name, register, options }: Props<T>) => {
+const SelectInput = <T extends FieldValues>({
+  label,
+  name,
+  register,
+  options,
+  placeholder,
+}: Props<T>) => {
   return (
     <div>
       <label
@@ -22,8 +27,9 @@ const SelectInput = <T,>({ label, name, register, options }: Props<T>) => {
         id={name}
         {...register(name)}
         className="border rounded-md p-2 w-full"
+        defaultValue={undefined}
       >
-        <option value={undefined}>Seleccione una categoría</option>
+        <option value={undefined}>{placeholder}</option>
         {options?.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
