@@ -24,7 +24,7 @@
     "baseUrl": ".",
     "paths": {
       "@globalTypes/*": ["../types/*"],
-      "@components/*": ["src/components/*"],
+      "src/*": ["src/*"]
     },
   },
   "include": ["src", "../types/**/*"]
