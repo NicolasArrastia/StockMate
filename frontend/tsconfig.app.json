@@ -21,8 +21,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
+    "baseUrl": ".",
     "paths": {
       "@globalTypes/*": ["../types/*"],
+      "@components/*": ["src/components/*"],
     },
   },
   "include": ["src", "../types/**/*"]
