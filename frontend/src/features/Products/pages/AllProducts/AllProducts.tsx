@@ -1,19 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../../../../components/Button";
+import Button from "src/components/Button";
 import { useCallback, useMemo, useState } from "react";
 import useGetAllProducts from "../../hooks/useGetAllProducts.ts";
 import { ProductPopulatedType } from "@globalTypes/types.ts";
 import { ColumnDef } from "@tanstack/react-table";
-import SvgIcon from "../../../../components/SvgIcon";
-import {
-  DeleteForeverIcon,
-  EditIcon,
-  WarningIcon,
-} from "../../../../assets/svg";
-import TruncatedText from "../../../../components/TruncatedText";
-import Category from "../../../../components/UI/Category/Category.tsx";
-import Input from "../../../../components/UI/Input/Input.tsx";
-import Table from "../../../../components/Table";
+import SvgIcon from "src/components/SvgIcon";
+import { DeleteForeverIcon, EditIcon, WarningIcon } from "src/assets/svg";
+import TruncatedText from "src/components/TruncatedText";
+import Category from "src/components/UI/Category/Category.tsx";
+import Input from "src/components/UI/Input/Input.tsx";
+import Table from "src/components/Table";
 
 const AllProducts = () => {
   const navigate = useNavigate();
@@ -21,8 +17,6 @@ const AllProducts = () => {
   const { data: products = [], isLoading } = useGetAllProducts({
     search,
   });
-
-  console.count("AllProducts");
 
   const handleSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
