@@ -7,7 +7,6 @@ import SvgIcon from "src/components/SvgIcon";
 const Dashboard = () => {
   const { data: lowStock } = useGetLowStock();
   const { data: outOfStock } = useGetOutOfStock();
-  console.log(outOfStock);
 
   const METRICS = [
     {
@@ -29,7 +28,7 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
 
       {METRICS.map(({ label, color, icon, value }) => (
-        <div className={`flex items-center gap-2 ${color} w-fit`}>
+        <div key={label} className={`flex items-center gap-2 ${color} w-fit`}>
           <SvgIcon icon={icon} />
           <span>
             {label} <span>{value}</span>
