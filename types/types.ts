@@ -55,6 +55,7 @@ export enum PaymentMethodsEnum {
   ONLINE = "online",
   OTHER = "other",
 }
+
 export enum SaleStatusEnum {
   COMPLETED = "completed",
   PENDING = "pending",
@@ -62,22 +63,24 @@ export enum SaleStatusEnum {
   REFUNDED = "refunded",
 }
 
+export type SaleProductType = {
+  id: string;
+  name: string;
+  quantity: number;
+  price: number;
+};
+
 export type SaleType = {
   _id: string;
   date: Date;
   customerId: string;
 
-  products: Array<{
-    id: string;
-    name: string;
-    quantity: number;
-    price: number;
-  }>;
+  products: Array<SaleProductType>;
 
   totalAmount: number;
   totalDiscount: number;
 
   paymentMethod?: PaymentMethodsEnum;
-  status?: SaleStatusEnum;
+  status: SaleStatusEnum;
   // createdBy: string;
 };
