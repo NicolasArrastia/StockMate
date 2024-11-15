@@ -12,7 +12,7 @@ type Props<TData> = {
   isLoading: boolean;
 };
 
-const Table = <TData,>({ columns, data, isLoading }: Props<TData>) => {
+const Table = <TData,>({ columns, data = [], isLoading }: Props<TData>) => {
   const tableInstance = useReactTable({
     data,
     columns,
@@ -22,12 +22,20 @@ const Table = <TData,>({ columns, data, isLoading }: Props<TData>) => {
 
   const hasItems = !!tableInstance.getRowCount();
 
+  /*
+    TODO
+    [ ] make the table to not overflow when used
+    [ ] header sticky
+    [ ] add sorting functionality
+    [ ] add infinite pagination functionality
+    [ ] add sorting (backend)
+  */
   return (
     <>
       {isLoading ? (
         <Loader />
       ) : (
-        <>
+        <div className="overflow-auto">
           {hasItems ? (
             <table className="border w-full">
               <thead className="bg-neutral-400">
@@ -65,7 +73,7 @@ const Table = <TData,>({ columns, data, isLoading }: Props<TData>) => {
           ) : (
             <span>No hay elementos para mostrar</span>
           )}
-        </>
+        </div>
       )}
     </>
   );
