@@ -6,7 +6,7 @@ export type ButtonVariant = "primary" | "secondary" | "error";
 type Props = {
   variant?: ButtonVariant;
   children: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
   className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -30,7 +30,7 @@ const Button = ({
     <button
       onClick={onClick}
       className={`
-        py-1 px-4 font-bold rounded-sm w-fit h-fit cursor-pointer
+        py-2 px-6 font-bold rounded-sm w-fit h-fit cursor-pointer
         ${variants[variant]}
         ${className}
       `}
