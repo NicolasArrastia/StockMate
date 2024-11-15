@@ -1,13 +1,13 @@
-import Input from "../../../../components/Form/Input";
-import Button from "../../../../components/Button";
+import Input from "src/components/Form/Input";
+import Button from "src/components/Button";
 import { ProductPopulatedType } from "@globalTypes/types";
 import { useMemo } from "react";
-import Loader from "../../../../components/Loader";
-import useGetAllCategories from "../../../../hooks/settings/categories/useGetAllCategories";
-import SelectInput from "../../../../components/SelectInput";
+import Loader from "src/components/Loader";
+import useGetAllCategories from "src/hooks/settings/categories/useGetAllCategories";
+import SelectInput from "src/components/Form/SelectInput";
 import useProductForm from "./useProductForm";
 import ProfitValue from "./components/ProfitValue/ProfitValue";
-import Switch from "../../../../components/Form/Switch";
+import Switch from "src/components/Form/Switch";
 
 type ProductFormFields = Partial<ProductPopulatedType> & {
   _id: ProductPopulatedType["_id"];
@@ -67,6 +67,7 @@ const ProductForm = ({ mode }: Props) => {
               name="category"
               register={register}
               options={formattedCategories}
+              placeholder="Seleccione una categoría"
             />
             <Switch
               name="isActive"
