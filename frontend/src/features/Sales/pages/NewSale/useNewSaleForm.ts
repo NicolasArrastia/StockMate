@@ -1,14 +1,16 @@
 import {
   PaymentMethodsEnum,
   ProductPopulatedType,
-  SaleProductType,
   SaleStatusEnum,
   SaleType,
 } from "@globalTypes/types";
 import { format } from "date-fns";
 import { useCallback, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import useGetAllProducts from "src/features/Products/hooks/useGetAllProducts";
+import useCreateSale from "src/hooks/sales/useCreateSale";
 
 // TODO: move hook
 const useSearchInput = () => {
@@ -52,8 +54,19 @@ const useNewSaleForm = () => {
   });
   const { setValue, getValues, handleSubmit } = form;
 
-  const onSubmit = handleSubmit((a) => {
-    console.log(a);
+  const navigate = useNavigate();
+  const { mutate } = useCreateSale({
+    onSuccess: () => {
+      toast.success("Venta creada con éxito");
+      navigate("/sales");
+    },
+    onError: (e) => {
+      toast.error(e.message);
+    },
+  });
+
+  const onSubmit = handleSubmit((formData) => {
+    mutate(formData);
   });
 
   const handleAddProduct = useCallback(
