@@ -46,7 +46,7 @@ const useNewSaleForm = () => {
       date: format(new Date(), "yyyy-MM-dd hh:mm"),
       // customerId: "",
       products: [],
-      paymentMethod: PaymentMethodsEnum.DEBIT_CARD,
+      paymentMethod: PaymentMethodsEnum.CASH,
       status: SaleStatusEnum.COMPLETED,
     },
   });
