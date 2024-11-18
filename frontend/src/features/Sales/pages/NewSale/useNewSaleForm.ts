@@ -45,7 +45,7 @@ const useNewSaleForm = () => {
 
   const form = useForm<SaleType>({
     defaultValues: {
-      date: format(new Date(), "yyyy-MM-dd hh:mm"),
+      date: format(new Date(), "yyyy-MM-dd HH:mm"),
       // customerId: "",
       products: [],
       paymentMethod: PaymentMethodsEnum.CASH,
