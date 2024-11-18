@@ -72,8 +72,8 @@ export type SaleProductType = {
 
 export type SaleType = {
   _id: string;
-  date: Date;
-  customerId: string;
+  date: string;
+  customerId?: string;
 
   products: Array<SaleProductType>;
 
