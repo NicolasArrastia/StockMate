@@ -14,14 +14,6 @@ dotenv.config();
 const app = express();
 connectDB();
 
-// ! TODO: REMOVE THIS CODE BEFORE PRODUCTION
-const delayMiddleware = async (req, res, next) => {
-  await new Promise((resolve) =>
-    setTimeout(resolve, Math.floor(Math.random() * 1001))
-  ); // 2-second delay
-  next();
-};
-
 app.use(cors());
 app.use(express.json());
 
