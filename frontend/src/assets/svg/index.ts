@@ -23,6 +23,7 @@ import PaymentsIcon from "./payments.svg";
 import CreditCardIcon from "./credit_card.svg";
 import SellIcon from "./sell.svg";
 import BarcodeScannerIcon from "./barcode_scanner.svg";
+import RemoveIcon from "./remove.svg";
 
 export {
   InventoryIcon,
@@ -49,4 +50,5 @@ export {
   CreditCardIcon,
   SellIcon,
   BarcodeScannerIcon,
+  RemoveIcon,
 };
