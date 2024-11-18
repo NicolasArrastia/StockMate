@@ -6,7 +6,7 @@ import {
 import mongoose from "mongoose";
 
 const SaleSchema = new mongoose.Schema<SaleType>({
-  date: { type: Date, default: Date.now },
+  date: { type: String, required: true },
   // customerId: { type: mongoose.Schema.Types.ObjectId, ref: "Customer" },
 
   products: [
@@ -19,7 +19,7 @@ const SaleSchema = new mongoose.Schema<SaleType>({
   ],
 
   totalAmount: { type: Number, required: true },
-  totalDiscount: { type: Number, required: true },
+  totalDiscount: { type: Number },
 
   paymentMethod: { type: String, required: true, enum: PaymentMethodsEnum },
   status: { type: String, required: true, enum: SaleStatusEnum },

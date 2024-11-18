@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import Sale from "../models/Sale";
+import { SaleType } from "@globalTypes/types";
+import Product from "src/models/Product";
 
 export const getAllSales = async (req: Request, res: Response) => {
   try {
@@ -20,13 +22,28 @@ export const getSaleById = async (req: Request, res: Response) => {
   }
 };
 
-export const createSale = async (req: Request, res: Response) => {
+export const createSale = async (
+  req: Request<{}, {}, SaleType>,
+  res: Response
+) => {
   try {
-    const sale = new Sale(req.body);
+    const { products } = req.body;
+
+    const totalAmount = products.reduce(
+      (sum, item) => sum + item.price * item.quantity,
+      0
+    );
+
+    const sale = new Sale<SaleType>({
+      ...req.body,
+      totalAmount,
+    });
+
     const savedSale = await sale.save();
+
     res.status(201).json(savedSale);
   } catch (error) {
-    res.status(500).json({ error: "Error creating sale" });
+    res.status(500).json({ message: "Error creating sale", error });
   }
 };
 
