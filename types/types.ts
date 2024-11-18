@@ -78,7 +78,7 @@ export type SaleType = {
   products: Array<SaleProductType>;
 
   totalAmount: number;
-  totalDiscount: number;
+  totalDiscount?: number;
 
   paymentMethod?: PaymentMethodsEnum;
   status: SaleStatusEnum;
