@@ -39,6 +39,21 @@ export const createSale = async (
       totalAmount,
     });
 
+    const updatePromises = req.body.products.map(async (product) => {
+      const foundProduct = await Product.findById(product.id);
+      if (!foundProduct) {
+        throw new Error(`Producto con ID ${product.id} no encontrado`);
+      }
+      if (foundProduct.quantityOnStock < product.quantity) {
+        throw new Error(
+          `No hay suficiente stock para el producto con ID ${product.id}`
+        );
+      }
+      foundProduct.quantityOnStock -= product.quantity;
+      await foundProduct.save();
+    });
+
+    await Promise.all(updatePromises);
     const savedSale = await sale.save();
 
     res.status(201).json(savedSale);
