@@ -95,17 +95,24 @@ const NewSale = () => {
                   label={""}
                   type="number"
                 />
-                {QUANTITY_BUTTONS.map(({ color, icon, quantity }) => (
-                  <div
-                    key={icon}
-                    className={`${color} rounded-full cursor-pointer`}
-                    onClick={() =>
-                      handleAddProductQuantity(original.id, quantity)
-                    }
-                  >
-                    <SvgIcon icon={icon} color={TailwindColors.NEUTRAL50} />
-                  </div>
-                ))}
+                {QUANTITY_BUTTONS.map(({ color, icon, quantity }) => {
+                  const isDisabled = original.quantity + quantity === 0;
+
+                  return (
+                    <div
+                      key={icon}
+                      className={`${
+                        isDisabled ? "bg-neutral-400" : color
+                      } rounded-full cursor-pointer`}
+                      onClick={() =>
+                        !isDisabled &&
+                        handleAddProductQuantity(original.id, quantity)
+                      }
+                    >
+                      <SvgIcon icon={icon} color={TailwindColors.NEUTRAL50} />
+                    </div>
+                  );
+                })}
 
                 <div
                   className="bg-red-500 rounded-md cursor-pointer p-1"
