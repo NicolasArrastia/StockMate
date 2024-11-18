@@ -142,11 +142,15 @@ const NewSale = () => {
     {
       id: "actions",
       cell: ({ row: { original } }) => {
+        const isDisabled = original.quantityOnStock <= 0;
+
         return (
           <div className="flex justify-end">
             <div
-              onClick={() => handleAddProduct(original)}
-              className="bg-green-500 w-fit rounded-full cursor-pointer"
+              onClick={() => !isDisabled && handleAddProduct(original)}
+              className={`${
+                isDisabled ? "bg-neutral-400" : "bg-green-500"
+              } w-fit rounded-full cursor-pointer`}
             >
               <SvgIcon icon={AddIcon} color={TailwindColors.NEUTRAL50} />
             </div>
