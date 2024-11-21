@@ -16,6 +16,7 @@ export const getCategoryById = async (req: Request, res: Response) => {
     const category = await Category.findById(id);
     if (!category) {
       res.status(404).json({ message: "Category not found" });
+      return;
     }
     res.status(200).json(category);
   } catch (error) {
@@ -32,6 +33,7 @@ export const createCategory = async (req: Request, res: Response) => {
       res
         .status(400)
         .json({ message: "Category with this name already exists" });
+      return;
     }
 
     const newCategory = new Category({
@@ -60,6 +62,7 @@ export const updateCategory = async (req: Request, res: Response) => {
 
     if (!updatedCategory) {
       res.status(404).json({ message: "Category not found" });
+      return;
     }
 
     res.status(200).json(updatedCategory);
@@ -75,6 +78,7 @@ export const deleteCategory = async (req: Request, res: Response) => {
     const deletedCategory = await Category.findByIdAndDelete(id);
     if (!deletedCategory) {
       res.status(404).json({ message: "Category not found" });
+      return;
     }
 
     res.status(200).json({ message: "Category deleted successfully" });

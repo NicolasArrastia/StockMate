@@ -10,6 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "homepage": "./",
   "dependencies": {
     "@tanstack/react-query": "^5.59.16",
     "@tanstack/react-table": "^8.20.5",

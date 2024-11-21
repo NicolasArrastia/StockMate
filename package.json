@@ -5,8 +5,8 @@
   "build": {
     "appId": "com.inventory.manager",
     "files": [
-      "backend",
-      "frontend/build",
+      "backend/dist",
+      "frontend/dist",
       "main.js"
     ],
     "directories": {
@@ -19,7 +19,11 @@
     "server": "cd backend && npm run dev",
     "client": "cd frontend && npm run dev",
     "electron": "wait-on http://localhost:3000 && electron .",
-    "dist": "npm run build --prefix frontend && electron-builder"
+
+    "test":"electron .",
+    
+    "dist": "npm run build --prefix frontend && electron-builder",
+    "electron-builder": "electron-builder"
   },
   "keywords": [],
   "author": "Nicolas",

@@ -22,21 +22,19 @@ export const getAllTags = async (
   }
 };
 
-export const getTagById = async (
-  req: Request,
-  res: Response
-): Promise<Response> => {
+export const getTagById = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const tag = await Tag.findById(id);
 
     if (!tag) {
-      return res.status(404).json({ message: "Tag not found" });
+      res.status(404).json({ message: "Tag not found" });
+      return;
     }
 
-    return res.status(200).json(tag);
+    res.status(200).json(tag);
   } catch (error) {
-    return res.status(500).json({ message: "Error fetching tag", error });
+    res.status(500).json({ message: "Error fetching tag", error });
   }
 };
 
@@ -46,9 +44,8 @@ export const createTag = async (req: Request, res: Response) => {
 
     const existingTag = await Tag.findOne({ name });
     if (existingTag) {
-      return res
-        .status(400)
-        .json({ message: "Tag with this name already exists" });
+      res.status(400).json({ message: "Tag with this name already exists" });
+      return;
     }
 
     const newTag = new Tag({ name });
@@ -59,10 +56,7 @@ export const createTag = async (req: Request, res: Response) => {
   }
 };
 
-export const updateTag = async (
-  req: Request,
-  res: Response
-): Promise<Response> => {
+export const updateTag = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const { name, color } = req.body;
@@ -74,29 +68,28 @@ export const updateTag = async (
     );
 
     if (!updatedTag) {
-      return res.status(404).json({ message: "Tag not found" });
+      res.status(404).json({ message: "Tag not found" });
+      return;
     }
 
-    return res.status(200).json(updatedTag);
+    res.status(200).json(updatedTag);
   } catch (error) {
-    return res.status(500).json({ message: "Error updating tag", error });
+    res.status(500).json({ message: "Error updating tag", error });
   }
 };
 
-export const deleteTag = async (
-  req: Request,
-  res: Response
-): Promise<Response> => {
+export const deleteTag = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const deletedTag = await Tag.findByIdAndDelete(id);
 
     if (!deletedTag) {
-      return res.status(404).json({ message: "Tag not found" });
+      res.status(404).json({ message: "Tag not found" });
+      return;
     }
 
-    return res.status(200).json({ message: "Tag deleted successfully" });
+    res.status(200).json({ message: "Tag deleted successfully" });
   } catch (error) {
-    return res.status(500).json({ message: "Error deleting tag", error });
+    res.status(500).json({ message: "Error deleting tag", error });
   }
 };

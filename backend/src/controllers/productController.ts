@@ -31,7 +31,8 @@ export const getProductById = async (req: Request, res: Response) => {
   try {
     const product = await Product.findById(req.params.id);
     if (!product) {
-      return res.status(404).json({ message: "Product not found" });
+      res.status(404).json({ message: "Product not found" });
+      return;
     }
     res.json(product);
   } catch (error) {
@@ -59,34 +60,32 @@ export const createProduct = async (
   }
 };
 
-export const updateProduct = async (
-  req: Request,
-  res: Response
-): Promise<Response> => {
+export const updateProduct = async (req: Request, res: Response) => {
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
       req.params.id,
       req.body,
       { new: true, runValidators: true }
     );
-    if (!updatedProduct)
-      return res.status(404).json({ message: "Product not found" });
-    return res.json(updatedProduct);
+    if (!updatedProduct) {
+      res.status(404).json({ message: "Product not found" });
+      return;
+    }
+    res.json(updatedProduct);
   } catch (error) {
-    return res.status(400).json({ message: "Error updating product", error });
+    res.status(400).json({ message: "Error updating product", error });
   }
 };
 
-export const deleteProduct = async (
-  req: Request,
-  res: Response
-): Promise<Response> => {
+export const deleteProduct = async (req: Request, res: Response) => {
   try {
     const deletedProduct = await Product.findByIdAndDelete(req.params.id);
-    if (!deletedProduct)
-      return res.status(404).json({ message: "Product not found" });
-    return res.json({ message: "Product deleted" });
+    if (!deletedProduct) {
+      res.status(404).json({ message: "Product not found" });
+      return;
+    }
+    res.json({ message: "Product deleted" });
   } catch (error) {
-    return res.status(500).json({ message: "Error deleting product", error });
+    res.status(500).json({ message: "Error deleting product", error });
   }
 };
