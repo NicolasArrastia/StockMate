@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { DeleteForeverIcon, EditIcon } from "../../../../assets/svg";
+import { DeleteForeverIcon } from "../../../../assets/svg";
 import Button from "../../../../components/Button";
 import Loader from "../../../../components/Loader";
 import SvgIcon from "../../../../components/SvgIcon";
@@ -37,11 +37,6 @@ const Categories = () => {
       toast.error("Error creando la categoría");
     },
   });
-
-  const handleEdit = (categoryId: string) => {
-    // Navigate to edit category page
-    // navigate(`/settings/categories/edit/${categoryId}`);
-  };
 
   const handleDelete = (categoryId: string) => {
     deleteCategory(categoryId);
