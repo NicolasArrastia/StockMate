@@ -1,12 +1,6 @@
 import SelectInput from "src/components/Form/SelectInput";
 import Table from "src/components/Table";
-import {
-  PaymentMethodsEnum,
-  ProductPopulatedType,
-  SaleProductType,
-  SaleStatusEnum,
-  SaleType,
-} from "@globalTypes/types";
+import { ProductPopulatedType, SaleProductType } from "@globalTypes/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { useMemo } from "react";
 import Input from "src/components/UI/Input";
@@ -21,7 +15,7 @@ import { TailwindColors } from "src/features/Settings/components/Categories/enum
 import { PAYMENT_METHODS_OPTIONS, SALE_STATUS_OPTIONS } from "src/constants";
 import useNewSaleForm from "./useNewSaleForm";
 import Button from "src/components/Button";
-import { Controller, FormProvider } from "react-hook-form";
+import { FormProvider } from "react-hook-form";
 import InputForm from "src/components/Form/Input";
 import DatePicker from "../../../../components/Form/DatePicker";
 
