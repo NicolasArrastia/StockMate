@@ -31,9 +31,7 @@ const useSearchInput = () => {
   };
 };
 
-type SaleFormFields = Partial<SaleType> & {
-  _id: SaleType["_id"];
-};
+// TODO: Add SaleFormFields type
 
 const useNewSaleForm = () => {
   const search = useSearchInput();
