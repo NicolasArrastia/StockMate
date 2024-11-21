@@ -7,6 +7,8 @@ yarn.lock
 
 # Build directories
 /dist
+*/dist
+/out
 /build
 /.next
 /.out
