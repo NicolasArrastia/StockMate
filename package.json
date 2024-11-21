@@ -22,9 +22,9 @@
     "dist": "npm run build --prefix frontend && electron-builder"
   },
   "keywords": [],
-  "author": "",
+  "author": "Nicolas",
   "license": "ISC",
-  "description": "",
+  "description": "StockMate is an inventory manager app for desktop use",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
