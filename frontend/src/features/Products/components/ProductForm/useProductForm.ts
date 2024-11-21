@@ -45,8 +45,8 @@ const useProductForm = ({ mode }: Props) => {
     onError: (e) => toast.error(e.message),
   });
   const { mutate: updateProduct } = useUpdateProduct({
-    onError: (e) => {
-      toast.warn(e.response.data.error.message);
+    onError: () => {
+      toast.warn("Error actualizando el producto");
     },
     onSuccess: () => {
       toast.success("Producto actualizado");
