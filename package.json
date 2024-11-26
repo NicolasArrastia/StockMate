@@ -19,9 +19,6 @@
     "server": "cd backend && npm run dev",
     "client": "cd frontend && npm run dev",
     "electron": "wait-on http://localhost:3000 && electron .",
-
-    "test":"electron .",
-    
     "dist": "npm run build --prefix frontend && electron-builder",
     "electron-builder": "electron-builder"
   },
