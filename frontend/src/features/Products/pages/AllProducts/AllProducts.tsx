@@ -10,6 +10,7 @@ import TruncatedText from "src/components/TruncatedText";
 import Category from "src/components/UI/Category/Category.tsx";
 import Input from "src/components/UI/Input/Input.tsx";
 import Table from "src/components/Table";
+import { TailwindColors } from "src/features/Settings/components/Categories/enums.ts";
 
 const AllProducts = () => {
   const navigate = useNavigate();
@@ -93,7 +94,13 @@ const AllProducts = () => {
               } flex items-center gap-2`}
             >
               {quantityOnStock}
-              {isStockWarning && <SvgIcon icon={WarningIcon} size={20} />}
+              {isStockWarning && (
+                <SvgIcon
+                  icon={WarningIcon}
+                  size={20}
+                  color={TailwindColors.ORANGE500}
+                />
+              )}
             </span>
           );
         },
@@ -106,11 +113,13 @@ const AllProducts = () => {
               className="!bg-red-500 cursor-pointer"
               icon={DeleteForeverIcon}
               onClick={handleDeleteModal}
+              color={TailwindColors.RED500}
             />
             <SvgIcon
               className="!bg-neutral-500 cursor-pointer"
               icon={EditIcon}
               onClick={() => handleEditRedirect(row.original._id)}
+              color={TailwindColors.NEUTRAL500}
             />
           </div>
         ),

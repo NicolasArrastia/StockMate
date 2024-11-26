@@ -64,4 +64,17 @@ export enum TailwindColors {
   YELLOW800 = "#854d0e",
   YELLOW900 = "#713f12",
   YELLOW950 = "#422006",
+
+  // ORANGE
+  ORANGE50 = "#fff7ed",
+  ORANGE100 = "#ffedd5",
+  ORANGE200 = "#fed7aa",
+  ORANGE300 = "#fdba74",
+  ORANGE400 = "#fb923c",
+  ORANGE500 = "#f97316",
+  ORANGE600 = "#ea580c",
+  ORANGE700 = "#c2410c",
+  ORANGE800 = "#9a3412",
+  ORANGE900 = "#7c2d12",
+  ORANGE950 = "#431407",
 }

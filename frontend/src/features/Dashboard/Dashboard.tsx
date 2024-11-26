@@ -3,6 +3,7 @@ import useGetOutOfStock from "src/hooks/metrics/useGetOutOfStock";
 import Layout from "../../components/Layout";
 import { ErrorIcon, WarningIcon } from "src/assets/svg";
 import SvgIcon from "src/components/SvgIcon";
+import { TailwindColors } from "../Settings/components/Categories/enums";
 
 const Dashboard = () => {
   const { data: lowStock } = useGetLowStock();
@@ -29,7 +30,7 @@ const Dashboard = () => {
 
       {METRICS.map(({ label, color, icon, value }) => (
         <div key={label} className={`flex items-center gap-2 ${color} w-fit`}>
-          <SvgIcon icon={icon} />
+          <SvgIcon icon={icon} color={TailwindColors.NEUTRAL50} />
           <span>
             {label} <span>{value}</span>
           </span>
